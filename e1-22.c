@@ -31,9 +31,8 @@ int main(void)
             ++len;
             --tab;
         }
-        if (len >= MAXLEN) {
+        if (len >= MAXLEN)
             print_buffer(buf, &i, &len, &tab);
-        }
         if (tab == 0)
             tab = TABSIZE;
     }

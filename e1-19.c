@@ -5,44 +5,44 @@
 #define MAXLINE 1000    /* maximum input line size */
 
 void reverse(char line[], int linelen);
-int getline(char line[], int maxline);
+int getline_KR(char line[], int maxline);
 
 int main(void)
 {
-	int len, i;
-	char line[MAXLINE];     /* current input line */
+    int len, i;
+    char line[MAXLINE];     /* current input line */
 
-	while ((len = getline(line, MAXLINE)) > 0) {
-		reverse(line, len);
-		printf("%s", line);
-	}
+    while ((len = getline_KR(line, MAXLINE)) > 0) {
+        reverse(line, len);
+        printf("%s", line);
+    }
 
-	return 0;
+    return 0;
 }
 
 void reverse(char s[], int len)
 {
-	int i, j;
-	char temp;
-	for (i = 0, j = len-1; i < len/2; ++i, --j) {
-		temp = s[j];
-		s[j] = s[i];
-		s[i] = temp;
-	}
+    int i, j;
+    char temp;
+    for (i = 0, j = len-1; i < len/2; ++i, --j) {
+        temp = s[j];
+        s[j] = s[i];
+        s[i] = temp;
+    }
 }
 
-/* getline: read a line into s, return length */
-int getline(char s[], int lim)
+/* getline_KR: read a line into s, return length */
+int getline_KR(char s[], int lim)
 {
-	int c, i;
+    int c, i;
 
-	for (i=0; (c=getchar())!=EOF && c!='\n'; ++i)
-		if (i<lim-1)
-			s[i] = c;
-	if (c == '\n') {
-		s[i] = c;
-		++i;
-	}
-	s[i] = '\0';
-	return i;
+    for (i=0; (c=getchar())!=EOF && c!='\n'; ++i)
+        if (i<lim-1)
+            s[i] = c;
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
 }

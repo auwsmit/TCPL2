@@ -5,7 +5,7 @@
 #include <stdio.h>
 #define MAXLINE 1000    /* maximum input line size */
 
-int getline(char line[], int maxline);
+int getline_KR(char line[], int maxline);
 void copy(char to[], char from[]);
 
 /* print longest input line */
@@ -17,7 +17,7 @@ int main(void)
     char longest[MAXLINE];  /* longest line saved here */
 
     max = 0;
-    while ((len = getline(line, MAXLINE)) > 0)
+    while ((len = getline_KR(line, MAXLINE)) > 0)
         if (len > max) {
             max = len;
             copy(longest, line);
@@ -27,8 +27,8 @@ int main(void)
     return 0;
 }
 
-/* getline: read a line into s, return length */
-int getline(char s[], int lim)
+/* getline_KR: read a line into s, return length */
+int getline_KR(char s[], int lim)
 {
     int c, i;
 
