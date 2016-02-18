@@ -10,21 +10,21 @@
 void escape(char s[], char t[])
 {
     int i, j;
-    for (i = 0, j = 0; (s[i] != '\0') || (i > MAXLEN); ++i, ++j) {
+    for (i = 0, j = 0; (s[i] != '\0') || (i > MAXLEN); ++i) {
         switch(s[i])
         {
             case '\t':
                 t[j++] = '\\';
-                t[j] = 't';
+                t[j++] = 't';
                 break;
 
             case '\n':
                 t[j++] = '\\';
-                t[j] = 'n';
+                t[j++] = 'n';
                 break;
 
             default:
-                t[j] = s[i];
+                t[j++] = s[i];
                 break;
         }
     }
@@ -34,27 +34,27 @@ void escape(char s[], char t[])
 void epacse(char s[], char t[])
 {
     int i, j;
-    for (i = 0, j = 0; (s[i] != '\0') || (i > MAXLEN); ++i, ++j) {
+    for (i = 0, j = 0; (s[i] != '\0') || (i > MAXLEN); ++i) {
         if (s[i] == '\\') {
             switch(s[i+1])
             {
                 case 't':
-                    t[j] = '\t';
+                    t[j++] = '\t';
                     i++;
                     break;
 
                 case 'n':
-                    t[j] = '\n';
+                    t[j++] = '\n';
                     i++;
                     break;
 
                 default:
-                    t[j] = s[i];
+                    t[j++] = s[i];
                     break;
             }
         }
         else
-            t[j] = s[i];
+            t[j++] = s[i];
     }
     t[j] = '\0';
 }
@@ -63,10 +63,6 @@ int main(void)
 {
     char strA[MAXLEN] = "Here's a string!\t\tand some tabs!\t\nAnd\tnew\nLines!";
     char strB[MAXLEN];
-
-    epacse(strB, strA);
-    printf("Test: %s\n", strA);
-
 
     printf("Original:  %s\n", strA);
     escape(strA, strB);
