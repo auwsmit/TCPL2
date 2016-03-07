@@ -1,0 +1,14 @@
+tags
+
+.vs/
+build/
+vimconfig/plugged/
+vimconfig/session/
+vimconfig/tmp/
+vimconfig/stuff/
+
+*.exe
+*.bat
+*.ilk
+*.obj
+*.pdb
