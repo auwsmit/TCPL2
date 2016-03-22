@@ -3,6 +3,7 @@ tags
 .vs/
 build/
 
+*.bat
 *.exe
 *.bat
 *.ilk
