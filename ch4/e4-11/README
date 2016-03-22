@@ -1,2 +1,5 @@
 Exercise: Modify getop so that it doesn't need to use ungetch.
 Hint: use an internal static variable.
+
+Answer: Because no more than one character is ever pushed back, a static
+variable can be used to remember the 'last pushed back' character.
