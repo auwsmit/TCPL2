@@ -1,9 +1,10 @@
-/* Exercise: In a two's compliment number system, our version of itoa does not
+/*
+ * Exercise: In a two's compliment number system, our version of itoa does not
  * handle the largest negative number, that is, the value of n equal to
  * -(2^wordsize-1). Explain why not. Modify it to print that value correctly,
- *  regardless of the machine on which it runs. */
-
-/* Result: It doesn't handle the largest negative number, because that value
+ *  regardless of the machine on which it runs.
+ *
+ * Answer: It doesn't handle the largest negative number, because that value
  * cannot be simply inverted without causing an overflow.
  *
  * The overflow occurs because of how binary numbers are stored. An unsigned
@@ -27,7 +28,7 @@
  *
  * The solution is to check for the largest negative value, add one to it so
  * that itoa works correctly, and then manually increase the value by one in the
- * string. Ta-da!
+ * string.
  */
 
 #include <stdio.h>

@@ -1,9 +1,11 @@
-/* Exercise: In a two's complement number system, x &= (x-1) deletes the
+/*
+ * Exercise: In a two's complement number system, x &= (x-1) deletes the
  * rightmost 1-bit in x. Explain why. Use this observation to write a faster
- * version of bitcount. */
-
-/* Result: The statement deletes the rightmost bit because the rightmost 1-bit
- * is changed when any number is subtracted by 1. */
+ * version of bitcount.
+ *
+ * Answer: The statement deletes the rightmost bit because the rightmost 1-bit
+ * is changed when any number is subtracted by 1.
+ */
 
 #include <stdio.h>
 

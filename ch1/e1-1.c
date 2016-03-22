@@ -1,7 +1,8 @@
-/* Exercise: Run the "hello, world" program on your system. Experiment with
- * leaving out parts of the program, to see what error messages you get. */
-
-/* Results:
+/*
+ * Exercise: Run the "hello, world" program on your system. Experiment with
+ * leaving out parts of the program, to see what error messages you get.
+ *
+ * Answer:
  *  Using GCC:
  *  - removing "include <stdio.h>" gives a warning:
  *    "implicit declaration of function 'printf'", but the program still

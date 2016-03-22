@@ -1,6 +1,8 @@
-/* Exercise: An alternative organization uses getline to read an entire input
+/*
+ * Exercise: An alternative organization uses getline to read an entire input
  * line; this makes getch and ungetch unnecessary. Revise the calculator to use
- * this approach. */
+ * this approach.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>     /* for atof() */

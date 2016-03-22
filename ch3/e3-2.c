@@ -1,7 +1,9 @@
-/* Exercise: Write a function escape(s,t) that converts characters like newline
+/*
+ * Exercise: Write a function escape(s,t) that converts characters like newline
  * and tab into visible escape sequences like \n and \t as it copies the string
  * t to s. Use a switch. Write a function for the other direction as well,
- * converting escape sequences into the real characters. */
+ * converting escape sequences into the real characters.
+ */
 
 #include <stdio.h>
 
@@ -11,8 +13,7 @@ void escape(char s[], char t[])
 {
     int i, j;
     for (i = 0, j = 0; (s[i] != '\0') || (i > MAXLEN); ++i) {
-        switch(s[i])
-        {
+        switch(s[i]) {
             case '\t':
                 t[j++] = '\\';
                 t[j++] = 't';
@@ -36,8 +37,7 @@ void epacse(char s[], char t[])
     int i, j;
     for (i = 0, j = 0; (s[i] != '\0') || (i > MAXLEN); ++i) {
         if (s[i] == '\\') {
-            switch(s[i+1])
-            {
+            switch(s[i+1]) {
                 case 't':
                     t[j++] = '\t';
                     i++;

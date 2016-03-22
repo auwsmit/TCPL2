@@ -1,5 +1,7 @@
-/* Exercise: Rewrite the temperature conversion perogram of Section 1.2 to use
- * a function for conversion. */
+/*
+ * Exercise: Rewrite the temperature conversion perogram of Section 1.2 to use
+ * a function for conversion.
+ */
 
 #include <stdio.h>
 

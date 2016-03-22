@@ -1,5 +1,8 @@
-/* Exercise: Write a recursive version of the function reverse(s), which
- * reverses the string s in place. */
+/*
+ * Exercise: Write a recursive version of the function reverse(s), which
+ * reverses the string s in place.
+ */
+
 #include <stdio.h>
 
 void reverse(char s[])

@@ -1,5 +1,7 @@
-/* Exercise: Adapt the ideas of printd to write a recursive version of itoa;
- * that is, convert an integer into a string by calling a recursive routine. */
+/*
+ * Exercise: Adapt the ideas of printd to write a recursive version of itoa;
+ * that is, convert an integer into a string by calling a recursive routine.
+ */
 
 #include <stdio.h>
 #include <string.h>

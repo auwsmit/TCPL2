@@ -1,11 +1,13 @@
-/* Exercise: Our binary search makes two tests inside the loop, when one would
+/*
+ * Exercise: Our binary search makes two tests inside the loop, when one would
  * suffice (at the price of more tests outisde). Write a version with only one
- * test inside the loop and measure the difference in run-time. */
-
-/* Result: There was no noticeable difference in run-time between the two. Both
+ * test inside the loop and measure the difference in run-time.
+ *
+ * Answer: There was no noticeable difference in run-time between the two. Both
  * ran at roughly 20 milliseconds. I used PowerShell's Measure-Command, which
  * might not have been very accurate. Or it's possible that modern CPU speeds
- * make telling the difference more difficult. */
+ * make telling the difference more difficult.
+ */
 
 #include <stdio.h>
 

@@ -1,6 +1,8 @@
-/* Exercise: Verify that the expression getchar() != EOF is 0 or 1. */
-
-/* Result: It's 1, unless the character returned is EOF */
+/*
+ * Exercise: Verify that the expression getchar() != EOF is 0 or 1.
+ *
+ * Answer: It's 1, unless the character returned is EOF
+ */
 
 #include <stdio.h>
 

@@ -1,7 +1,10 @@
-/* Exercise: How would you test the word count program? What kinds of input are
- * most likely to uncover bugs if there are any? */
-
-/* Result: */
+/*
+ * Exercise: How would you test the word count program? What kinds of input are
+ * most likely to uncover bugs if there are any?
+ *
+ * Answer: Input with symbols between words, or line breaks between words could
+ * be problematic.
+ */
 
 #include <stdio.h>
 
