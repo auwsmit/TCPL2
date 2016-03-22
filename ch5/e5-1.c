@@ -3,6 +3,7 @@
  * a valid representation of zero. Fix it to push such a character back on the
  * input.
  */
+
 #include <stdio.h>
 #include <ctype.h>
 #define BUFSIZE  100
@@ -10,13 +11,30 @@
 char buf[BUFSIZE];      /* buffer for ungetch */
 int bufp = 0;           /* next free position in buf */
 
-/* get a (possibly pushed back) character */
+int getch(void);
+void ungetch(int c);
+
+/* getint: get next integer from input into *pn */
+int getint(int *pn);
+
+int main(void)
+{
+    int number;
+
+    printf("Enter an integer: ");
+    if (getint(&number) != 0)
+        printf("Valid integer found: %d\n\n", number);
+    else
+        printf("No valid integer found!\n\n");
+
+    return 0;
+}
+
 int getch(void)
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-/* push character back on input */
 void ungetch(int c)
 {
     if (bufp >= BUFSIZE)
@@ -25,7 +43,6 @@ void ungetch(int c)
         buf[bufp++] = c;
 }
 
-/* getint: get next integer from input into *pn */
 int getint(int *pn)
 {
     int c, sign;
@@ -49,17 +66,4 @@ int getint(int *pn)
     if (c != EOF)
         ungetch(c);
     return c;
-}
-
-int main(void)
-{
-    int number;
-
-    printf("Enter an integer: ");
-    if (getint(&number) != 0)
-        printf("Valid integer found: %d\n\n", number);
-    else
-        printf("No valid integer found!\n\n");
-
-    return 0;
 }
