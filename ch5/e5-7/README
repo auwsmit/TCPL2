@@ -1,0 +1,20 @@
+Exercise: Rewrite readlines to store lines in an array supplied by main, rather
+than calling alloc to maintain storage. How much faster is the program?
+
+Answer: Both versions of the program averaged 0.080 seconds to run, after
+running an arbitrary number of measurements via the bash time command.
+
+I think these results might not be wholly accurate for a few reasons:
+
+ - The compiler may have optimized the code, causing both programs to run
+   similarly.
+
+ - The version of bash used was from Git-for-Windows, meaning that the time
+   command may not work the same or be as accurate as it would be natively.
+
+ - My modern laptop may be so fast that the time difference is very slight and
+   difficult to detect without high precision measurements.
+
+If any passing readers know of a more precise way to measure an executable's run
+time on Windows, let me know, because I had trouble finding a one. Maybe even
+some way to count the number of CPU cycles a program uses?
