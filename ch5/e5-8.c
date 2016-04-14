@@ -15,12 +15,13 @@ int day_of_year(int year, int month, int day)
 {
     int i, leap;
 
-    /* error checking for invalid values */
     if (year < 0 || month <= 0 || month > 12 || day <= 0 || day > 31)
-        return -1;
+        return -1; /* invalid dates */
 
     leap = year%4 == 0 && year%100 != 0 || year%400 == 0;
-    for (i = 1; i <= month; i++)
+    if (leap == 0 && month == 2 && day == 29)
+        return -1; /* Feb. 29 in a non-leap year */
+    for (i = 1; i < month; i++)
         day += daytab[leap][i];
     return day;
 }
@@ -30,9 +31,8 @@ int month_day(int year, int yearday, int *pmonth, int *pday)
 {
     int i, leap;
 
-    /* error checking for invalid values */
     if (year <= 0 || yearday <= 0 || yearday > 366)
-        return -1;
+        return -1; /* invalid values */
 
     leap = year%4 == 0 && year%100 != 0 || year%400 == 0;
     if (leap == 0 && yearday == 366)
@@ -45,39 +45,41 @@ int month_day(int year, int yearday, int *pmonth, int *pday)
     return 0;
 }
 
-/* print_num_end: prints the correct ending for num */
-void print_num_end(int num)
+/* num_end: returns the correct ending for num */
+char *num_end(int num)
 {
     if (num == 11 || num == 12 || num == 13) {
-        printf("th");
-        return;
+        return "th";
     }
     switch(num % 10) {
-        case 1: printf("st");
+        case 1: return "st";
                 break;
-        case 2: printf("nd");
+        case 2: return "nd";
                 break;
-        case 3: printf("rd");
+        case 3: return "rd";
                 break;
-        default: printf("th");
+        default: return "th";
+                 break;
     }
 }
 
-/* print_month: prints the name of the month */
-void print_month(int month)
+/* month_name: return the name of n-th month */
+char *month_name(int n)
 {
-    static char *names[13] = { "",
+    static char *name[] = {
+        "Illegal month",
         "January", "February", "March", "April", "May", "June", "July",
         "August", "September", "October", "November", "December"
     };
-    printf("%s", names[month]);
+
+    return (n < 1 || n > 12) ? name[0] : name[n];
 }
 
 int main(void)
 {
     int month, day, year, yearday, error;
 
-    printf("Enter a date (MM/DD/YYYY): ");
+    printf("\nEnter a date (MM/DD/YYYY): ");
     scanf(" %d / %d / %d", &month, &day, &year);
 
     yearday = day_of_year(year, month, day);
@@ -86,9 +88,8 @@ int main(void)
         return 1;
     }
 
-    printf("That's the %d", yearday);
-    print_num_end(yearday);
-    printf(" day of that year!\n");
+    printf("That's the %d%s day of that year!\n",
+           yearday, num_end(yearday));
 
     printf("\nEnter a year: ");
     scanf(" %d", &year);
@@ -101,11 +102,8 @@ int main(void)
         return 1;
     }
 
-    printf("That day is ");
-    print_month(month);
-    printf(" %d", day);
-    print_num_end(day);
-    printf("!\n\n");
+    printf("That day is %s %d%s!\n\n",
+           month_name(month), day, num_end(day));
 
     return 0;
 }
