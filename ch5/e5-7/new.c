@@ -18,10 +18,6 @@ int main(void)
 {
     int nlines;     /* number of input lines read */
     char *storage;
-    if ((storage = alloc(MAXLINES * MAXLEN)) == 0) {
-        printf("error: alloc is too small you dumb piece of shit\n");
-        return 'f'+'u'+'c'+'k'+'y'+'o'+'u';
-    }
 
     if ((nlines = readlines(lineptr, MAXLINES, storage)) >= 0) {
         qsort_KR(lineptr, 0, nlines-1);
