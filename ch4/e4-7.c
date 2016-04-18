@@ -121,7 +121,7 @@ int main(void)
             case '/':
                 op2 = pop();
                 if (op2 != 0.0)
-                    push(pop() - op2);
+                    push(pop() / op2);
                 else
                     printf("error: no zero divisor\n");
                 break;
